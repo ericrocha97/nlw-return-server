@@ -2,11 +2,11 @@ import nodemailer from "nodemailer";
 import { MailAdapter, SendMailData } from "../mail-adapter";
 
 const transport = nodemailer.createTransport({
-  host: "smtp.mailtrap.io",
-  port: 2525,
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT),
   auth: {
-    user: "0af9ec2fecd1f8",
-    pass: "144fc728d442fd",
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
 });
 
